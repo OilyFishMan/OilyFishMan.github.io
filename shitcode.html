@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Why I write "shit" code</title>
+    </head>
+
+    <body>
+        <a href="blog.html">Go back!</a>
+        <h1>Why I write "shit" code</h1>
+        The code I write absolutely sucks. Like, it's complete and utter bollocks. Have you seen this shit?<br/>
+        Here is an example of some code I wrote for a video game i'm making:<br/>
+        <pre style="color: gray;">
+    #include &lt;SDL2/SDL.h&rt;
+
+    #define KEYCODE_UP 0
+    #define KEYCODE_DOWN 1
+    #define KEYCODE_REPEAT 2
+
+    void key_is_pressed(const SDL_Keycode code);
+
+    // @game_assets
+    struct { /* ... */ } game_assets_shit;
+    void init_game_assets_shit_shit(void);
+    void delete_game_assets(void);
+
+    // @window
+    struct { /* ... */ } window_shit;
+    void init_window(void);
+    void close_window(void);
+
+    int main(void)
+    {
+        int exit_status = EXIT_SUCCESS;
+        if (!init_window()) {
+            exit_status = EXIT_FAILURE;
+            goto end;
+        }
+
+        if (!init_game_assets_shit_shit()) {
+            exit_status = EXIT_FAILURE;
+            goto end_window;
+        }
+        /* game loop */
+    // end_assets:
+        delete_game_assets();
+    end_window:
+        close_window();
+    end:embed markdown
+        return exit_status;
+    }
+        </pre>
+        Let's list the issues with this code:
+        <ol>
+            <li>I am writing the code using the C programming language.</li>
+            <li>I am using a goto when a try/catch would be cleaner.</li>
+            <li>I am using global variables.</li>
+            <li>This is too coupled!</li>
+            <li>My naming convention is not consistent.</li>
+            <li>I am using bizarre ampersand-prefixed comments instead of following the C convention.</li>
+            <li>I am using the C preprocessor.</li>
+            <li>I am emulating return using a temporary variable and gotos, when normal return is <b>completely fine</b>.</li>
+            <li>I am not using an enum, instead manually enumerating constants.</li>
+            <li>I am swearing.</li>
+            <li>ALL MY CODE IS IN ONE BIG FILE!</li>
+        </ol>
+        Obviously, all of these things are illegal and bad.<br/>
+        Why?<br/>
+        Well, why not use them?<br/>
+        <ol>
+            <li>C is fun.</li>
+            <li>Goto is a language feature that allows me to (in this case) emulate destructors.</li>
+            <li>Global variables allow me to not put 15 fucking arguments in every function.</li>
+            <li>Please explain why coupling is bad in a video game codebase.</li>
+            <li>What's wrong with this?</li>
+            <li>There is no C convention.</li>
+            <li>There's nothing wrong with using the C preprocessor.</li>
+            <li>Guess what? It's less lines of code, and easier to understand. I cannot use return, because then I would not cleanup all variables. I cannot pretend to not cleanup all variables, because this is not fucking C++</li>
+            <li>This is an act of rebellion.</li>
+            <li>I am allowed to speak the english language.</li>
+            <li>It's identical to having it in separate files, only in this case it's an act of rebellion.</li>
+        </ol>
+    </body>
+</html>
